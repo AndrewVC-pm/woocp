@@ -16,6 +16,10 @@ app.use(cors({
 app.use(express.json({
   verify: (req, _res, buf) => { req.rawBody = buf.toString('utf8'); },
 }));
+app.use(express.urlencoded({
+  extended: true,
+  verify: (req, _res, buf) => { req.rawBody = buf.toString('utf8'); },
+}));
 
 // Health check (under basePath so nginx proxy reaches it)
 app.get(config.basePath + '/health', (_req, res) => res.json({ status: 'ok' }));

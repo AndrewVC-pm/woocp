@@ -127,7 +127,7 @@ fetch('https://pay.neuro-hub.pro/pay/woocp/cancel-order', ...)
 
 ```bash
 cd /opt/billing/dev
-git pull origin master
+git pull origin main
 docker-compose up --build -d
 ```
 
