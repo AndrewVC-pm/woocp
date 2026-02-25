@@ -11,6 +11,7 @@ async function getUser(email) {
       clientSecret: config.casdoor.clientSecret,
     },
   });
+  console.log(`Casdoor getUser(${email}) response:`, JSON.stringify(data).substring(0, 500));
   return data;
 }
 
