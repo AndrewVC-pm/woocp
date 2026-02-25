@@ -17,8 +17,8 @@ WooCP — биллинг-сервис для neuro-hub.pro, заменяющий
 
 ```bash
 cd /opt
-git clone https://github.com/flyokyla/billing.git
-cd billing/dev
+git clone https://github.com/AndrewVC-pm/woocp.git
+cd woocp/dev
 ```
 
 ### 2. Создать .env файл
@@ -67,7 +67,7 @@ xxxxxxxxx      dev-woocp   "node src/index.js"  Up X seconds  0.0.0.0:4000->4000
 
 Проверить health check:
 ```bash
-curl http://localhost:4000/health
+curl http://localhost:4000/pay/woocp/health
 # {"status":"ok"}
 ```
 

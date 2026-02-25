@@ -48,6 +48,10 @@ npm run dev            # запуск с --watch (авторестарт)
 Файл `src/cron/recurrent.js`, строка с `cron.schedule()`.
 Формат: стандартный cron (`0 6 * * *` = ежедневно в 06:00 UTC).
 
+## CORS
+
+Сервис использует пакет `cors` для обработки cross-origin запросов с `https://neuro-hub.pro`. Настройка в `src/index.js`. Если фронтенд переедет на другой домен — обновить `origin` в `cors()`.
+
 ## Как работает flow оплаты
 
 1. **Фронтенд** → `POST /create-order` → создаёт order в Supabase, возвращает конфиг виджета
