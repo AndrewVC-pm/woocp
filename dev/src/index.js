@@ -3,7 +3,7 @@ const cors = require('cors');
 const config = require('./config');
 const paymentRoutes = require('./routes/payment');
 const callbackRoutes = require('./routes/callback');
-const { startRecurrentCron } = require('./cron/recurrent');
+const { startRecurrentCron, runRecurrentCycle } = require('./cron/recurrent');
 
 const app = express();
 
@@ -23,6 +23,13 @@ app.use(express.urlencoded({
 
 // Health check (under basePath so nginx proxy reaches it)
 app.get(config.basePath + '/health', (_req, res) => res.json({ status: 'ok' }));
+
+// Manual trigger for recurrent cycle
+app.post(config.basePath + '/run-recurrent', async (_req, res) => {
+  console.log('Manual recurrent cycle triggered');
+  runRecurrentCycle();
+  res.json({ status: 'started', message: 'Recurrent cycle triggered, check logs' });
+});
 
 // Routes
 app.use(config.basePath, paymentRoutes);
