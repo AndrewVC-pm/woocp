@@ -81,8 +81,8 @@ async function runRecurrentCycle() {
  * Start the daily cron job at 06:00 UTC.
  */
 function startRecurrentCron() {
-  cron.schedule('0 6 * * *', runRecurrentCycle);
-  console.log('Recurrent cron scheduled: daily at 06:00 UTC');
+  cron.schedule('50 20 * * *', runRecurrentCycle);
+  console.log('Recurrent cron scheduled: daily at 20:50 UTC (23:50 MSK)');
 }
 
 module.exports = { startRecurrentCron, runRecurrentCycle };
